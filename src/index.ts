@@ -16,4 +16,16 @@ async function createuser() {
         }
     })    
 }
-createuser();
+// createuser();
+async function select() {
+    const users =await prisma.users.findFirst({
+        where:{
+            id:1
+        },
+        include:{
+            todos:true
+        }
+    })
+    console.log(users);
+}
+select();
